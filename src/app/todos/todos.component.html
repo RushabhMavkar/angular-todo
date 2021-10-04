@@ -1,0 +1,28 @@
+<app-add-todo (TodoAdd)="AddTodo($event)"></app-add-todo>
+
+<div class="shadow bg-light px-5 py-4">
+  <h1 class="display-5 mb-3">Todo</h1>
+  <div *ngIf="todos.length === 0; else elseBlock">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong>No Todo items present!</strong>
+      <hr />
+      <p>New todo items will be shown here.</p>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div *ngFor="let todo of todos; index as i">
+      <app-todo-item
+        [todo]="todo"
+        [index]="i"
+        (TodoDelete)="DeleteTodo($event)"
+        (TodoDone)="ToggleActiveTodo($event)"
+      ></app-todo-item>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,45 @@
+<div class="accordion accordion-flush shadow-sm mb-3" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button bg-light collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOne"
+      >
+        Add new item
+      </button>
+    </h2>
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <form (ngSubmit)="FormTodoSubmit()">
+          <div class="mb-3">
+            <label for="todo-inp-title" class="form-label">Title</label>
+            <input
+              [(ngModel)]="title"
+              name="title"
+              type="text"
+              class="form-control"
+              id="todo-inp-title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="todo-inp-desc" class="form-label">Description</label>
+            <textarea
+              [(ngModel)]="desc"
+              class="form-control"
+              id="todo-inp-desc"
+              name="desc"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
